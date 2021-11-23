@@ -42,6 +42,7 @@ if(_token != null && _token.equals(request.getSession().getId())) {
     em.getTransaction().begin();
     em.remove(m); //データ削除
     em.getTransaction().commit();
+    request.getSession().setAttribute("flush", "削除が完了しました。");
     em.close();
 
     //セッションスコープ上の不要になったデータを削除
